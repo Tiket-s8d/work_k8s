@@ -18,12 +18,16 @@ postgresql:
 
 gitlab-runner:
   install: false
+
 registry:
   enable: true
 
 global:
   nodeSelector:
     vcs: gitlab
+  
+  edition: ce
+
   smtp:
     enabled: true
     tls: false
@@ -36,12 +40,11 @@ global:
     password:
       secret: 'fake-mail-password'
       key: 'password'
+  
   email:
     from: "noreply@gitlab.mechatronica-pro.local"
     display_name: "GitLab mechatronica-pro.local"
   
-
-  edition: ce
 
   initialRootPassword:
     key: password
