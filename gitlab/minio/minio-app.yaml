@@ -8,8 +8,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/Tiket-s8d/work_k8s/'
-    path: gitlab/minio
+    repoURL: 'https://github.com/Tiket-s8d/work_k8s'
+    path: gitlab/minio/manifest
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
