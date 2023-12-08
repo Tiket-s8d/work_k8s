@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'https://github.com/Tiket-s8d/work_k8s/'
     path: gitlab/minio
-    targetRevision: master
+    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: gitlab
