@@ -20,10 +20,11 @@ gitlab-runner:
 registry:
   enable: true
 
-global:
-  minio:
-    enabled: false
 
+global:
+
+  pages:
+    enable: true
   ingress:
     configureCertmanager: false
     class: "nginx"
@@ -63,39 +64,10 @@ global:
     domain: mechatronica-pro
     https: false
     gitlab: {}
-    externalIP: 192.168.122.133
+    externalIP: 192.168.122.131
     ssh: ~
-
-
-  appConfig:
-    lfs:
-      bucket: gitlab-lfs-storage
-      connection: # https://gitlab.com/gitlab-org/charts/gitlab/blob/master/doc/charts/globals.md#connection
-        secret: minio-credentials
-        key: connection
-    artifacts:
-      bucket: gitlab-artifacts-storage
-      connection:
-        secret: minio-credentials
-        key: connection
-    uploads:
-      bucket: gitlab-uploads-storage
-      connection:
-        secret: minio-credentials
-        key: connection
-    packages:
-      bucket: gitlab-packages-storage
-      connection:
-        secret: minio-credentials
-        key: connection
-    backups:
-      bucket: gitlab-backup-storage
-      tmpBucket: gitlab-tmp-storage
-
 gitlab:
   toolbox:
     backups:
-      objectStorage:
-        config:
-          secret: s3-credentials
-          key: config
+      cron:
+        enabled: true

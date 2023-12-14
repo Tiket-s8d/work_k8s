@@ -1,6 +1,6 @@
 imagePullPolicy: IfNotPresent
 revisionHistoryLimit: 3
-gitlabUrl: http://gitlab.mechatronica-pro/
+gitlabUrl: http://gitlab.mechatronica-pro
 terminationGracePeriodSeconds: 3600
 # Количество раннеров
 concurrent: 5
@@ -36,9 +36,9 @@ runners:
     [[runners]]
       output_limit = 10000
       [runners.kubernetes]
-        image = "ubuntu:20.04"
+        image = "tikets8d/gcc_for_embedded:v1.9"
   executor: kubernetes
-  secret: dev-gitlab-runner
+  secret: build-gitlab-runner
 securityContext:
   runAsUser: 100
   # runAsGroup: 65533
