@@ -31,10 +31,6 @@ spec:
           value: "true"
             #        - name: persistence.storageClass
             #          value: managed-nfs-storage
-        - name: persistence.size
-          value: 2Gi
-        - name: volumePermissions.enabled
-          value: "true"
 
   destination:
     server: 'https://kubernetes.default.svc'
