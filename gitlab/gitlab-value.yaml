@@ -4,14 +4,11 @@ certmanager:
 nginx-ingress:
   enabled: false
 
-prometheus:
-  install: true
-
 redis:
-  install: true
+  install: false
 
 postgresql:
-  install: true
+  install: false
 
 gitlab-runner:
   install: false
@@ -19,10 +16,14 @@ gitlab-runner:
 registry:
   enable: true
 
+prometheus:
+  install: true
+
 
 global:
   nodeSelector:
-    SVC: gitlab
+    SVN: gitlab
+
   ingress:
     configureCertmanager: false
     class: "nginx"
@@ -30,7 +31,50 @@ global:
       enabled: false
 
   edition: ce
-  
+  redis:
+    auth:
+      enabled: true
+      secret: gitlab-redis
+      key: redis-password
+    host: gitlab-redis-master
+    port: 6379
+
+  psql:
+    host: postgres-np
+    port: 5432
+    database: gitlab
+    username: timofey
+    password:
+      useSecret: true
+      secret: postgres-secret
+      key: POSTGRES_PASSWORD
+
+  appConfig:
+    # https://docs.gitlab.com/charts/advanced/external-object-storage/#lfs-artifacts-uploads-packages-external-diffs-terraform-state-dependency-proxy
+    lfs:
+      bucket: gitlab-lfs-storage
+      connection: # https://gitlab.com/gitlab-org/charts/gitlab/blob/master/doc/charts/globals.md#connection
+        secret: minio-credentials
+        key: connection
+    artifacts:
+      bucket: gitlab-artifacts-storage
+      connection:
+        secret: minio-credentials
+        key: connection
+    uploads:
+      bucket: gitlab-uploads-storage
+      connection:
+        secret: minio-credentials
+        key: connection
+    packages:
+      bucket: gitlab-packages-storage
+      connection:
+        secret: minio-credentials
+        key: connection
+    backups:
+      bucket: gitlab-backup-storage
+      tmpBucket: gitlab-tmp-storage
+
   initialRootPassword:
     key: password
     secret: initial-admin-password
@@ -41,3 +85,16 @@ global:
     gitlab: {}
     externalIP: 192.168.122.100
     ssh: ~
+
+
+gitlab:
+  toolbox:
+    backups:
+      objectStorage:
+        config:
+          secret: s3-credentials
+          key: config
+  gitaly:
+    persistence:
+      size: 50Gi
+      storageClass: "local-path"
