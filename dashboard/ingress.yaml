@@ -9,9 +9,6 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - mechatronica-pro
   rules:
   - host: dashboard.mechatronica-pro
     http:

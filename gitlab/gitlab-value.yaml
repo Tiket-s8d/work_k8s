@@ -21,7 +21,8 @@ registry:
 
 
 global:
-
+  nodeSelector:
+    SVC: gitlab
   ingress:
     configureCertmanager: false
     class: "nginx"
