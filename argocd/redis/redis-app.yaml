@@ -13,16 +13,22 @@ spec:
     targetRevision: 17.11.3
     helm:
       parameters:
+        - name: volumePermissions.enabled
+          value: 'true'
+        - name: master.persistence.enabled
+          value: 'true'
+        - name: replica.persistence.enabled
+          value: 'true'
         - name: global.storageClass
-          value: local-path
+          value: local-storage
         - name: global.redis.password
           value: 'qUwTt8g9it'
-        - name: master.persistence.storageClass
-          value: local-path
+        - name: master.persistence.existingClaim
+          value: redis-pvc
         - name: pdb.create
           value: 'true'
-        - name: replica.persistence.storageClass
-          value: local-path
+        - name: replica.persistence.existingClaim
+          value: redis-pvc
         - name: replica.replicaCount
           value: '1'
 #        - name: master.resources.requests.memory
