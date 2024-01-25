@@ -16,6 +16,7 @@ gitlab-runner:
 registry:
   enable: true
 
+
 prometheus:
   install: true
 
@@ -89,6 +90,8 @@ global:
 gitlab:
   toolbox:
     backups:
+      cron:
+        enabled: true
       objectStorage:
         config:
           secret: s3-credentials
