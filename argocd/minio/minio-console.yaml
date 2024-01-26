@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/Tiket-s8d/work_k8s'
-    path: argocd/minio/ingress
+    path: minio-console
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'

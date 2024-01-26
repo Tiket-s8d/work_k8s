@@ -22,7 +22,7 @@ spec:
         - name: auth.rootPassword
           value: password
         - name: disableWebUI
-          value: "false"
+          value: "true"
         - name: statefulset.replicaCount
           value: "2"
         - name: statefulset.zones
