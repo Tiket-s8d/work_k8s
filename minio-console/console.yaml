@@ -46,7 +46,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minioconsole
+  name: minio-console
   # ## Fix to new versions of ingress controllers
   # annotations:
   #   kubernetes.io/ingress.class: "system-ingress"
