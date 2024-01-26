@@ -65,3 +65,14 @@ spec:
                 port:
                   name: http
 
+    - host: "minio.mechatronica-pro"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gitlab-minio
+                port:
+                  name: http
+

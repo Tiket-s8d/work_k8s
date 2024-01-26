@@ -21,8 +21,6 @@ prometheus:
 
 
 global:
-  minio:
-    enabled: true
 
   ingress:
     configureCertmanager: false
