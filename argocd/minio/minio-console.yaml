@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: gitlab-minio
+  name: gitlab-minio-web
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
