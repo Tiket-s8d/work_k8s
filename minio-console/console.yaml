@@ -54,7 +54,7 @@ spec:
   ## Fix to new versions of ingress controllers
   ingressClassName: "nginx"
   rules:
-    - host: "minio.mechatronica-pro"
+    - host: "minio-console.mechatronica-pro"
       http:
         paths:
           - path: /
@@ -64,3 +64,14 @@ spec:
                 name: console
                 port:
                   name: http
+   - host: "minio.mechatronica-pro"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: minio
+                port:
+                  name: http
+

@@ -20,15 +20,11 @@ spec:
         - name: replica.persistence.enabled
           value: 'true'
         - name: global.storageClass
-          value: local-storage
+          value: local-path
         - name: global.redis.password
           value: 'qUwTt8g9it'
-        - name: master.persistence.existingClaim
-          value: redis-pvc
         - name: pdb.create
           value: 'true'
-        - name: replica.persistence.existingClaim
-          value: redis-pvc
         - name: replica.replicaCount
           value: '1'
 #        - name: master.resources.requests.memory

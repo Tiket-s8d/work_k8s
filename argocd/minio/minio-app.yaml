@@ -13,6 +13,8 @@ spec:
     targetRevision: 13.2.0
     helm:
       parameters:
+        - name: tls.enabled
+          value: "false"
         - name: mode
           value: distributed
         - name: auth.rootUser

@@ -16,14 +16,13 @@ gitlab-runner:
 registry:
   enable: true
 
-
 prometheus:
   install: true
 
 
 global:
   minio:
-    enabled: false
+    enabled: true
 
   ingress:
     configureCertmanager: false
@@ -50,35 +49,11 @@ global:
       secret: postgres-secret
       key: POSTGRES_PASSWORD
 
-  appConfig:
-    lfs:
-      bucket: gitlab-lfs-storage
-      connection: 
-        secret: minio-credentials
-        key: connection
-    artifacts:
-      bucket: gitlab-artifacts-storage
-      connection:
-        secret: minio-credentials
-        key: connection
-    uploads:
-      bucket: gitlab-uploads-storage
-      connection:
-        secret: minio-credentials
-        key: connection
-    packages:
-      bucket: gitlab-packages-storage
-      connection:
-        secret: minio-credentials
-        key: connection
-    backups:
-      bucket: gitlab-backup-storage
-      tmpBucket: gitlab-tmp-storage
 
   initialRootPassword:
     key: password
     secret: initial-admin-password
-  
+
   hosts:
     domain: mechatronica-pro
     https: false
@@ -92,10 +67,6 @@ gitlab:
     backups:
       cron:
         enabled: true
-      objectStorage:
-        config:
-          secret: s3-credentials
-          key: config
   gitaly:
     persistence:
       size: 50Gi
