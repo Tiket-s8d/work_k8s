@@ -29,6 +29,7 @@ global:
       enabled: false
 
   edition: ce
+
   redis:
     auth:
       enabled: true
@@ -46,6 +47,11 @@ global:
       useSecret: true
       secret: postgres-secret
       key: POSTGRES_PASSWORD
+  
+  pages:
+    enabled: true
+    localStore:
+      enabled: true
 
 
   initialRootPassword:
