@@ -39,7 +39,7 @@ spec:
               name: http
           env:
             - name: CONSOLE_MINIO_SERVER
-              value: "http://gitlab-minio:9000"
+              value: "192.168.3.24:9000"
             - name: CONSOLE_PORT
               value: "9090"
 ---
@@ -64,3 +64,7 @@ spec:
                 name: console
                 port:
                   name: http
+status:
+  loadBalancer:
+    ingress:
+    - ip: 192.168.3.21
