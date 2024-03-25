@@ -1,15 +1,23 @@
-nodeSelector: 
-  sonarqube: "true"
 
-persistence:
-  enabled: true
+postgresql:
+  enabled: false
+
+externalDatabase:
+  host: "192.168.3.37"
+  user: postgres
+  password: password
+  database: SonarQube
+  port: 5432 
+
+plugins:
+  install:
+    - 'https://github.com/SonarOpenCommunity/sonar-cxx/releases/download/cxx-2.1.1/sonar-cxx-plugin-2.1.1.488.jar'
 
 nginx:
   enabled: true
 
 ingress:
   enabled: true
-  # Used to create an Ingress record.
   hosts:
     - name: sonar.mechatronica-pro 
       path: /

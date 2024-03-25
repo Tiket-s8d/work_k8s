@@ -277,10 +277,10 @@
       type: s3
       s3:
         s3: 
-        endpoint: http://gitlab-minio-svc:9000
+        endpoint: http://192.168.3.24:9000
         region: null
-        secretAccessKey: ckM8mTuFrJoCvkC2ufKKTVpdZBhlUl2m5nmTUYsCK3iZfCKc8HRzpYcZL0cia5Ze
-        accessKeyId: MlfxHMLDPKndWSyvP0ECVkECkb3cFCD2gcN6wIuWD4qwm7Hn4l7hcrYl3aNSBzF3
+        secretAccessKey: InakUlXpBjcyrGGlfiBM
+        accessKeyId: UliydKSDBWeDDPN8CoFaX1avs9fx01atX1ejhrAn
         signatureVersion: null
         s3ForcePathStyle: true
         insecure: false

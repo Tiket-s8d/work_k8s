@@ -21,8 +21,7 @@ prometheus:
 
 
 global:
-  minio:
-    enabled: false
+  edition: ce
   
   ingress:
     configureCertmanager: false
@@ -30,7 +29,6 @@ global:
     tls:
       enabled: false
 
-  edition: ce
 
   redis:
     host: 192.168.3.38
@@ -84,7 +82,16 @@ global:
       prepared_statements: false
       database_tasks: false
 
+  minio:
+    enabled: false
   appConfig:
+    object_store:
+      enabled: false
+      proxy_download: true
+      storage_options: {}
+      connection:
+        secret: minio-credentials
+        key: connection
     lfs:
       bucket: gitlab-lfs-storage
       connection:
@@ -107,12 +114,29 @@ global:
         key: connection
     backups:
       bucket: gitlab-backup-storage
-      tmpBucket: gitlab-tmp-storage
+
+
+  smtp:
+    enabled: true
+    tls: false
+    starttls_auto: false
+    openssl_verify_mode: 'none'
+    domain: "gitlab.mechatronica-pro"
+    address: mail-relay
+    port: 25
+    authentication: "none"
+    password:
+      secret: 'fake-mail-password'
+      key: 'password'
+  email:
+    from: "noreply@gitlab.mechatronica-pro"
+    display_name: "GitLab gitlab.mechatronica-pro"
+
   hosts:
     domain: mechatronica-pro
     https: false
     gitlab: {}
-    externalIP: 192.168.3.21
+    externalIP: 192.168.3.160
     ssh: ~
 
 gitlab:

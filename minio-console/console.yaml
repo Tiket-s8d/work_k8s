@@ -39,7 +39,7 @@ spec:
               name: http
           env:
             - name: CONSOLE_MINIO_SERVER
-              value: "192.168.3.24:9000"
+              value: "192.168.3.24:9001"
             - name: CONSOLE_PORT
               value: "9090"
 ---
@@ -67,4 +67,4 @@ spec:
 status:
   loadBalancer:
     ingress:
-    - ip: 192.168.3.21
+    - ip: 192.168.3.160
